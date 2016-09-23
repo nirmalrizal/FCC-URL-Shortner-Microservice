@@ -35,7 +35,7 @@ app.get('/new/:url*',function(req,res){
 */
 
 // redirects to the original url
-router.get('/:id',function(req,res,next){
+app.get('/:id',function(req,res,next){
    if(req.params.id !== "favicon.ico") {
    	console.log(req.params.id);
     Url.find({shoUrl: Number(req.params.id)},function(err, url){
