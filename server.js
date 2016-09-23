@@ -24,7 +24,7 @@ app.get('/new/:url*',function(req,res){
   res.end();
 });
 
-app.get('/:inputUrl',function(req,res){
+app.get('/:inputUrl*',function(req,res){
   var input = req.hostname + req.path;
   var urlFromDb = searchDB(input);
   console.log(input);
