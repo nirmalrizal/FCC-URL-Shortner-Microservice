@@ -24,14 +24,29 @@ app.get('/new/:url*',function(req,res){
   res.end();
 });
 
-app.get('/:inputUrl*',function(req,res){
+/*app.get('/:inputUrl*',function(req,res){
   var input = req.hostname + req.path;
   var urlFromDb = searchDB(input);
   console.log(input);
   console.log(urlFromDb);
   res.redirect(urlFromDb);
   res.end();
-})
+});
+*/
+
+// redirects to the original url
+router.get('/:id',function(req,res,next){
+   if(req.params.id !== "favicon.ico") {
+   	console.log(req.params.id);
+    Url.find({shoUrl: Number(req.params.id)},function(err, url){
+         if(err) throw err;
+         res.redirect(url[0].orgiUrl);
+       });
+   }
+   else {
+   res.send('Error');
+ }
+});
 
 //generate ramdom number
 function randNum(){
