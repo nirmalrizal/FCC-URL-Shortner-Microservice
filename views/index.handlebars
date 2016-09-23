@@ -1,0 +1,30 @@
+<div class="container">
+  <h1 class="header">FreeCodeCamp API Basejump: URL Shortener Microservice</h1>
+  <label>By <a href="http://nirmalrizal.com.np">Nirmal Rijal</a>  | View project on <a href="https://github.com/nirmalrizal53/FCC-URL-Shortner-Microservice">Github</a></label>
+  <blockquote>
+    <h3 class="header">User Stories:</h3>
+    <ol>
+      <li>I can pass a URL as a parameter and I will receive a shortened URL in the JSON response.</li>
+      <li>If I pass an invalid URL that doesn't follow the valid <code>http://www.example.com</code> format, the JSON response will contain an error instead.</li>
+      <li>When I visit that shortened URL, it will redirect me to my original link.</li>
+    </ol>
+  </blockquote>
+
+  <h2>Example Creation Usage:</h2>
+  <code>https://hidden-peak-34480.herokuapp.com/new/http://nirmalrizal.com</code>
+  <code>https://hidden-peak-34480.herokuapp.com/new/google.com</code>
+
+  <h2>Example Creation Output</h2>
+  <code>{
+    "orgiUrl": "http://nirmalrizal.com.np",
+    "shoUrl": "https://hidden-peak-34480.herokuapp.com/1801"
+    }
+  </code>
+
+  <h2>Usage:</h2>
+  <code>https://hidden-peak-34480.herokuapp.com/1801</code>
+
+  <h2>Will redirect to:</h2>
+  <code>http://nirmalrizal.com.np</code>
+
+</div>
