@@ -16,7 +16,7 @@ app.listen(port,function(err){
 
 app.get('/new/:url*',function(req,res){
   var originalUrl = req.url.slice(5);
-  var hostname = 'https://hidden-peak-34480.herokuapp.comherok';
+  var hostname = 'https://hidden-peak-34480.herokuapp.com';
   console.log(originalUrl);
   var shortUrl = hostname+'/'+randNum();
   saveUrl(originalUrl,shortUrl);
@@ -25,11 +25,11 @@ app.get('/new/:url*',function(req,res){
 });
 
 app.get('/:inputUrl',function(req,res){
-  var input = req.params.inputUrl;
+  var input = req.hostname + req.path;
   var urlFromDb = searchDB(input);
   console.log(input);
-  //console.log(urlFromDb);
-  //res.redirect(urlFromDb);
+  console.log(urlFromDb);
+  res.redirect(urlFromDb);
   res.end();
 })
 
@@ -64,10 +64,11 @@ function searchDB(queryUrl){
     } else{
       console.log('Ready for search');
       var collection = db.collection('storeurl');
-      var q = queryUrl.toString();
+      var q = queryUrl;
       console.log(q);
       collection.find({shoUrl : queryUrl }).toArray(function(err, results){
           console.log(results); // output all records
+          return(results.orgiUrl);
       });
     }
   });
