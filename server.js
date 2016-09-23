@@ -16,7 +16,7 @@ app.listen(port,function(err){
 
 app.get('/new/:url*',function(req,res){
   var originalUrl = req.url.slice(5);
-  var hostname = 'https://hidden-peak-34480.herokuapp.com';
+  var hostname = 'https://hidden-peak-34480.herokuapp.comherok';
   console.log(originalUrl);
   var shortUrl = hostname+'/'+randNum();
   saveUrl(originalUrl,shortUrl);
@@ -66,9 +66,6 @@ function searchDB(queryUrl){
       var collection = db.collection('storeurl');
       var q = queryUrl.toString();
       console.log(q);
-      if(shoUrl == queryUrl){
-        console.log('TEST');
-      }
       collection.find({shoUrl : queryUrl }).toArray(function(err, results){
           console.log(results); // output all records
       });
